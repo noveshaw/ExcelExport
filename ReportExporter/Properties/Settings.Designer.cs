@@ -12,7 +12,7 @@ namespace ReportExporter.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -34,13 +34,49 @@ namespace ReportExporter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SP_KQ_DAY_REPORT")]
+        [global::System.Configuration.DefaultSettingValueAttribute("sp_kq_day_report")]
         public string queryProc {
             get {
                 return ((string)(this["queryProc"]));
             }
             set {
                 this["queryProc"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int mergeCountAfter {
+            get {
+                return ((int)(this["mergeCountAfter"]));
+            }
+            set {
+                this["mergeCountAfter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int mergeCountBefore {
+            get {
+                return ((int)(this["mergeCountBefore"]));
+            }
+            set {
+                this["mergeCountBefore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int mergeRowCount {
+            get {
+                return ((int)(this["mergeRowCount"]));
+            }
+            set {
+                this["mergeRowCount"] = value;
             }
         }
     }

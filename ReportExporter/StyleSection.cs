@@ -9,7 +9,6 @@ namespace ReportExporter
     public class StyleSection : ConfigurationSection
     {
         [ConfigurationProperty("Widths", IsRequired = false)]
-        //[ConfigurationCollection(typeof(Widths), CollectionType = ConfigurationElementCollectionType.AddRemoveClearMap)]
         public Widths Widths
         {
             get
@@ -64,26 +63,26 @@ namespace ReportExporter
         //    }
         //}
     }
+}
 
-    //自定义列宽配置类
-    public class WidthSection : ConfigurationElement
+//自定义列宽配置类
+public class WidthSection : ConfigurationElement
+{
+    [ConfigurationProperty("index", IsRequired = true, IsKey = true)]
+    public string index
     {
-        [ConfigurationProperty("index", IsRequired = true, IsKey = true)]
-        public string index
+        get
         {
-            get
-            {
-                return (string)base["index"];
-            }
+            return (string)base["index"];
         }
+    }
 
-        [ConfigurationProperty("width", IsRequired = true, DefaultValue = 10)]
-        public int width
+    [ConfigurationProperty("width", IsRequired = true, DefaultValue = 10)]
+    public int width
+    {
+        get
         {
-            get
-            {
-                return (int)base["width"];
-            }
+            return (int)base["width"];
         }
     }
 }

@@ -91,6 +91,29 @@ namespace ReportExporter
             return colsWidth;
         }
 
+        //获取app.config自定义配置Styele尾部合并列数
+        public static int GetMergeCountAfter()
+        {
+            int retVal = 0;
+            retVal = ReportExporter.Properties.Settings.Default.mergeCountAfter;
+            return retVal;
+        }
+
+        //获取app.config自定义配置Style头部合并列数
+        public static int GetMergeCountBefore()
+        {
+            int retVal = 0;
+            retVal = ReportExporter.Properties.Settings.Default.mergeCountBefore;
+            return retVal;
+        }
+
+        public static int GetMergeRowCount()
+        {
+            int retVal = 1;
+            retVal = ReportExporter.Properties.Settings.Default.mergeRowCount;
+            return retVal;
+        }
+
         //获取app.config自定义配置Procedure
         public string GetProcName()
         {

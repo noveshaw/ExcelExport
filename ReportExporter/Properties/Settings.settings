@@ -11,7 +11,16 @@
       <Value Profile="(Default)"> </Value>
     </Setting>
     <Setting Name="queryProc" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SP_KQ_DAY_REPORT</Value>
+      <Value Profile="(Default)">sp_kq_day_report</Value>
+    </Setting>
+    <Setting Name="mergeCountAfter" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="mergeCountBefore" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="mergeRowCount" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
     </Setting>
   </Settings>
 </SettingsFile>

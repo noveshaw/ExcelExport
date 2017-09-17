@@ -18,7 +18,9 @@ namespace ReportExporter
         private HSSFSheet sheet1;
         private HSSFCellStyle cellStyle;
 
-        public static int MergeCount = 4; //需要合并的单元格行数
+        public static int MergeRowsCount = AppConf.GetMergeRowCount();//合并行数
+        public static int MergeColumnsCountBefore = AppConf.GetMergeCountBefore(); //需要合并的单元格前面列数
+        public static int MergeColumnsCountAfter = AppConf.GetMergeCountAfter();//需要合并的后面列数
 
         public DataExport()
         {
@@ -27,6 +29,10 @@ namespace ReportExporter
             cellStyle = workbook.CreateCellStyle() as HSSFCellStyle;
             cellStyle.Alignment = HorizontalAlignment.Center;
             cellStyle.VerticalAlignment = VerticalAlignment.Center;
+            cellStyle.BorderBottom = BorderStyle.Thin;
+            cellStyle.BorderRight = BorderStyle.Thin;
+            cellStyle.BorderTop = BorderStyle.Thin;
+            cellStyle.BorderLeft = BorderStyle.Thin;
         }
 
         public void release()
@@ -74,21 +80,21 @@ namespace ReportExporter
                 }
             }
 
-            //前三列单元格合并
-            for (int step = 0; step < 3; step++)
+            //前n列单元格合并
+            for (int step = 0; step < MergeColumnsCountBefore; step++)
             {
-                for (int offset = 1; offset < rowCount; offset += MergeCount)
+                for (int offset = 1; offset < rowCount; offset += MergeRowsCount)
                 {
-                    sheet1.AddMergedRegion(new CellRangeAddress(offset, offset + MergeCount - 1, step, step));
+                    sheet1.AddMergedRegion(new CellRangeAddress(offset, offset + MergeRowsCount - 1, step, step));
                 }
             }
 
-            //后七列单元格合并
-            for (int step = colCount - 1; step > colCount - 8; step--)
+            //后n列单元格合并
+            for (int step = colCount - 1; step > colCount - MergeColumnsCountAfter - 1; step--)
             {
-                for (int offset = 1; offset < rowCount; offset += MergeCount)
+                for (int offset = 1; offset < rowCount; offset += MergeRowsCount)
                 {
-                    sheet1.AddMergedRegion(new CellRangeAddress(offset, offset + MergeCount - 1, step, step));
+                    sheet1.AddMergedRegion(new CellRangeAddress(offset, offset + MergeRowsCount - 1, step, step));
                 }
             }
 
